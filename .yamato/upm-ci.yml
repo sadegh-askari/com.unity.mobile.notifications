@@ -124,7 +124,7 @@ test_iOS_{{ editor.version }}:
   name: Test {{ editor.version }} on iOS
   agent:
     type: Unity::mobile::iPhone
-    image: mobile/macos-10.13-testing:stable
+    image: mmobile/ios-macos-11:latest
     flavor: b1.medium
   commands:
     - brew tap --force-auto-update unity/unity git@github.cds.internal.unity3d.com:unity/homebrew-unity.git
