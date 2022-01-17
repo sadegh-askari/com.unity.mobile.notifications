@@ -126,6 +126,8 @@ test_iOS_{{ editor.version }}:
     type: Unity::mobile::iPhone
     image: mobile/ios-macos-10.15:latest
     flavor: i1.large
+  variables:
+    IOS_SIMULATOR_SDK: 1
   commands:
     - brew tap --force-auto-update unity/unity git@github.cds.internal.unity3d.com:unity/homebrew-unity.git
     - brew install unity-config
