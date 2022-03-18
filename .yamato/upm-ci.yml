@@ -128,6 +128,7 @@ test_iOS_{{ editor.version }}:
     flavor: i1.large
   variables:
     IOS_SIMULATOR_SDK: 1
+    UTR_VERSION: 1.0.0
   commands:
     - brew tap --force-auto-update unity/unity git@github.cds.internal.unity3d.com:unity/homebrew-unity.git
     - brew install unity-config
