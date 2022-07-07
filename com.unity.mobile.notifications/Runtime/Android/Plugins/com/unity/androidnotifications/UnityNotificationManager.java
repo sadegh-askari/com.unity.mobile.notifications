@@ -193,7 +193,7 @@ public class UnityNotificationManager extends BroadcastReceiver {
         return String.format("unity_notification_channel_%s", id);
     }
     
-    public static boolean isNotificationEnabled(Context context) {
+    private static boolean isNotificationEnabled(Context context) {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
             return notificationManagerCompat.areNotificationsEnabled();
         }
@@ -254,6 +254,10 @@ public class UnityNotificationManager extends BroadcastReceiver {
         wrapper.lockscreenVisibility = channel.getLockscreenVisibility();
 
         return wrapper;
+    }
+    
+    public boolean isNotificationEnabled() {
+        return UnityNotificationManager.isNotificationEnabled(mContext);
     }
 
     public NotificationChannelWrapper getNotificationChannel(String id) {
