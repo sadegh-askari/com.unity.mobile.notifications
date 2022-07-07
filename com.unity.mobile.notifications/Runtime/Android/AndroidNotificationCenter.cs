@@ -185,6 +185,11 @@ namespace Unity.Notifications.Android
             );
         }
 
+        public bool IsNotificationsEnabled()
+        {
+            return self.Call<bool>("isNotificationEnabled");
+        }
+        
         public AndroidJavaObject[] GetNotificationChannels()
         {
             return self.Call<AndroidJavaObject[]>("getNotificationChannels");
@@ -623,6 +628,14 @@ namespace Unity.Notifications.Android
         public static AndroidNotificationChannel GetNotificationChannel(string channelId)
         {
             return GetNotificationChannels().SingleOrDefault(channel => channel.Id == channelId);
+        }
+
+        public static bool IsNotificationsEnabled()
+        {
+            if (!Initialize())
+                return false;
+            
+            return s_Jni.NotificationManager.IsNotificationsEnabled();
         }
 
         /// <summary>
